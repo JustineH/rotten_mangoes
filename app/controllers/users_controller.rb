@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  # Sign up
   def create
     @user = User.new(user_params)
 
