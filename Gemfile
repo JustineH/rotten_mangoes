@@ -31,6 +31,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'pry'
 
+gem 'carrierwave', '~> 0.10.0'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
