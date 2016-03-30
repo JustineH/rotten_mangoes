@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'admin/new'
+
+  get 'admin/create'
+
   get 'reviews/new'
   get 'reviews/create'
   get 'sessions/new'
@@ -13,6 +17,10 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
   root to: 'movies#index'
+
+  namespace :admin do
+    resources :users
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.
