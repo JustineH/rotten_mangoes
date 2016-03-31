@@ -1,0 +1,37 @@
+<div class="container">
+ <br>
+  <%= link_to "Back to movies", movies_path %>
+  <h2>Admin User Management</h2>
+    <div class="col-md-12">
+      <hr>
+      <%= link_to "Add new user", new_admin_user_path %>
+      <br><br>
+      <table class="table table-responsive table-inverse">
+        <thead class="table-inverse">
+          <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Email</th>
+            <th>Admin</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.firstname %></td>
+              <td><%= user.lastname %></td>
+              <td><%= user.email %></td>
+              <td><%= user.admin == true ? "Yes" : "No" %></td>
+              <td><%= link_to "Edit", edit_admin_user_path(user) %></td>
+              <td><%= link_to "Delete", admin_user_path(:id => user.id), method: :delete, data: {confirm: "Are you sure you want to delete this user?"} %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <%= paginate @users %>
+    </div>
+</div>
+
+

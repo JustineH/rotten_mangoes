@@ -1,0 +1,8 @@
+<div class="container">
+  <br>
+  <%= link_to "Back to Admin Page", '/admin/users' %>
+  <hr>
+  <h3>Edit user: <%= @user.full_name %></h3>
+    
+  <%= render 'admin_user_form' %>
+</div>

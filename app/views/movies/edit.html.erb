@@ -1,5 +1,7 @@
-<%= link_to "Back to this movie", movie_path(@movie) %>
+<div class="container">
+  <%= link_to "Back", movie_path(@movie) %>
 
-<h2>Edit this movie.</h2>
+  <h3>Edit:  <%= @movie.title %></h3>
 
-<%= render 'form' %>
+  <%= render 'form' %>
+</div>

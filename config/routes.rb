@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
   
-  get 'admin/new'
-
-  get 'admin/create'
-
   get 'reviews/new'
   get 'reviews/create'
   get 'sessions/new'
