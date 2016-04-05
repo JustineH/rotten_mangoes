@@ -1,7 +1,30 @@
 <div class="container">
-  <h2>Rotten Mangoes</h2>
-  <%= link_to "Submit a movie!", new_movie_path %>
+ <br>
+  <%= link_to "Back to all movies", movies_path %>
+  <h2>Rotten Mangoes Movies Listing</h2>
   <hr>
+  <%= link_to "Submit a movie!", new_movie_path %>
+  <br>
+  <h4>Search All Movies</h4>
+  <br>
+  <%= form_tag movies_path, method: :get do %>
+    <div class="form-group">
+      <%= text_field_tag :query_title, nil, class: "form-control", placeholder: "Title"%>
+      <br>
+      <%= text_field_tag :query_director, nil, class: "form-control", placeholder: "Director"%>
+      <br>
+      <%= select_tag :query_runtime_in_minutes, options_for_select(
+        [
+          ["Under 90 minutes", "under_90"], 
+          ["Between 90 and 120 minutes", "between_90_and_120"], 
+          ["Over 120 minutes", "over_120"]
+        ]), class: "form-control", :prompt => "Duration" %>
+      <br>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+  <br>
   <% @movies.each do |movie| %>
     <%= link_to image_tag(movie.image), movie_path(movie) %>
     <h2><%= link_to movie.title, movie_path(movie) %> | <%= movie.review_average %>/10</h2>

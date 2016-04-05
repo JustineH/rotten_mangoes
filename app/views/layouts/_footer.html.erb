@@ -1,13 +1,23 @@
 <footer>
-  <small>
-    <% if current_user %>
-      Signed in as <%= current_user.full_name %> (<%= link_to "Log out", session_path("current"), method: :delete %>)
-    <% else %>
-      <%= link_to "Log In", new_session_path %> | <%= link_to "Sign Up", new_user_path %>
-    <% end %>
-    <br>
-    <% if current_user && current_user.admin == true %>
-      <%= link_to "Go to Admin Page", "/admin/users" %> 
-    <% end %>
-  </small>
+  <div class="container">
+  <br>
+    <small>
+      <% if current_user && current_user.admin %>
+        Signed in as ADMIN: <%= current_user.full_name %> (<%= link_to "Log out", session_path("current"), method: :delete %>)
+        <br>
+        <%= link_to "Go to Admin Page", "/admin/users" %>
+      <% elsif current_user && current_user.admin && impersonating? %>
+          Signed in as ADMIN and IMPERSONATING: <%= current_user.full_name %> (<%= link_to "Unimpersonate", unimpersonate_sessions_path("current"), method: :post %>)
+        <br>
+        <%= link_to "Go to Admin Page", "/admin/users" %>
+      <% elsif current_user %>
+        Signed in as <%= current_user.full_name %> (<%= link_to "Log out", session_path("current"), method: :delete %>)
+      <% else %>
+      <br>
+      <%= link_to "Log In", new_session_path %> | <%= link_to "Sign up", new_user_path %>
+      <% end %>
+    </small>
+  </div>
 </footer>
+
+

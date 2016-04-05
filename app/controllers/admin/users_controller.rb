@@ -1,6 +1,5 @@
 class Admin::UsersController < ApplicationController
 
-  # before_filter :restrict_access
   before_filter :admin_restrict_access
 
   def index
@@ -38,6 +37,13 @@ class Admin::UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def impersonate
+    @user = User.find params[:id]
+    session[:actual_user_id] = session[:user_id]
+    session[:user_id] = @user.id 
+    redirect_to movies_path
   end
   
   private

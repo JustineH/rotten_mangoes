@@ -3,7 +3,9 @@ class MoviesController < ApplicationController
   before_action :restrict_access
   
   def index
-    @movies = Movie.all
+    @movies = Movie.filter(params[:query_title],
+                           params[:query_director], 
+                           params[:query_runtime_in_minutes])
   end
 
   def show

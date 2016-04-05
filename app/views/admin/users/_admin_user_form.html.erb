@@ -1,4 +1,4 @@
-<%= form_for [:admin, @user] do |f| %>
+<%= bootstrap_form_for [:admin, @user] do |f| %>
 
   <% if @user.errors.any? %>
     <div>
@@ -12,37 +12,33 @@
   <% end %>
   <br> 
   <div>
-    <%= f.label :firstname, "First Name" %><br>
-    <%= f.text_field :firstname %>
+    <%= f.text_field :firstname, label: "First name" %>
   </div>
   <br> 
   <div>
-    <%= f.label :lastname, "Last Name" %><br>
-    <%= f.text_field :lastname %>
+    <%= f.text_field :lastname, label: "Last name" %>
   </div>
   <br> 
   <div>
-    <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
   <br> 
   <div>
-    <%= f.label :password %><br>
     <%= f.password_field :password %>
   </div>
   <br> 
   <div>
-    <%= f.label :password_confirmation %><br>
     <%= f.password_field :password_confirmation %>
   </div>
   <br> 
   <div>
-    <%= f.check_box :admin %> <%= f.label :admin %>
+    <%= f.check_box :admin %> 
     <br> 
   </div>
   <br> 
   <div>
-    <%= f.submit "Submit" %> 
+    <%= f.submit "Submit", class: "btn btn-primary" %> 
   </div>
   <br> 
 <% end %>
+ 

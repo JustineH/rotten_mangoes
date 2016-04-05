@@ -34,6 +34,7 @@ gem 'pry'
 gem 'carrierwave', '~> 0.10.0'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'kaminari', '~> 0.16.3'
+gem 'bootstrap_forms'
 
 # Use unicorn as the app server
 # gem 'unicorn'
